@@ -1,0 +1,65 @@
+<DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+	<body>
+	<script>
+		function computerPlay() {
+			let possibleOutcomes = ['ROCK', 'PAPER', 'SCISSOR'];
+			let randomAnswer =  Math.floor(Math.random()*possibleOutcomes.length);
+			return possibleOutcomes[randomAnswer];
+		}
+
+		function singleRound(playerSelection, computerSelection) {
+			playerSelection = prompt("Enter your choice:");
+			
+			if (playerSelection != null) {
+				computerSelection = computerPlay();
+				if(playerSelection.toUpperCase() == 'ROCK'&& computerSelection == 'SCISSOR') {
+					return "You win rock blants scissor";
+				}
+				else if(playerSelection.toUpperCase() == 'ROCK'  && computerSelection == 'PAPER') {
+					return "You lose! Paper covers rock.";
+				}
+				else if(playerSelection.toUpperCase() == 'ROCK' && computerSelection == 'ROCK'){
+					return "This is a tie";
+				}
+				else if(playerSelection.toUpperCase() == 'PAPER' && computerSelection == 'PAPER'){
+					return "This is a tie";
+				}
+				else if(playerSelection.toUpperCase() == 'PAPER' && computerSelection == 'SCISSOR'){
+					return "You lose. Scissor cuts paper";
+				}
+				else if(playerSelection.toUpperCase() == 'PAPER' && computerSelection == 'ROCK') {
+					return "You win.Paper covers rock.";
+				}
+				else if (playerSelection.toUpperCase() == 'SCISSOR' && computerSelection == 'SCISSOR'){
+					 return "This is a tie.";
+				}
+				else if (playerSelection.toUpperCase() == 'SCISSOR' && computerSelection == 'ROCK') {
+					return "You lose. Rock blunts scissor.";
+				}
+				else if(playerSelection.toUpperCase() == 'SCISSOR' && computerSelection == 'PAPER') {
+					return "You win. Scissor cuts paper";
+				}
+				else {
+					return "please try again. valid inputs are rock, paper and scissor";
+				}
+			}
+
+		}
+		
+		function game() {
+			let player, computer;
+			for(i= 0; i < 5; i++){
+				console.log(singleRound(player, computer));
+			}
+		}
+
+
+		
+
+	</script>
+	</body>
+</html>
